@@ -4,7 +4,8 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 DEBUG = -Wall -Wextra -g
 
-SRC = main.c
+SRC = 	main.c \
+		validate.c
 OBJ = $(SRC:.c=.o)
 
 GREEN = \033[0;32m
