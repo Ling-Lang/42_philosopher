@@ -2,7 +2,7 @@ NAME = philo
 RM = rm -f
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-DEBUG = -Wall -Wextra -g
+DEBUG = -g
 
 SRC = 	main.c \
 		validate.c
