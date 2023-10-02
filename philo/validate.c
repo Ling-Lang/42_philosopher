@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de >    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 18:12:50 by jkulka            #+#    #+#             */
-/*   Updated: 2023/09/21 12:21:20 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/10/02 11:11:00 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "philo.h"
 static void *ft_exit(int flag);
 
-int ft_is_input_valid(int argc, char *argv[])
+void ft_is_input_valid(int argc, char *argv[])
 {
 	if(argc != 5)
 		ft_exit(1);

@@ -5,7 +5,8 @@ CFLAGS = -Wall -Wextra -Werror
 DEBUG = -g
 
 SRC = 	main.c \
-		validate.c
+		validate.c \
+		time_utils.c
 OBJ = $(SRC:.c=.o)
 
 GREEN = \033[0;32m
