@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de >    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 10:50:48 by jkulka            #+#    #+#             */
-/*   Updated: 2023/10/02 11:39:52 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/10/02 11:58:20 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <sys/time.h>
+typedef struct s_philo
+{
+    int num;
+    size_t last_meal;
+    size_t threshhold;
+} t_philo;
 typedef struct s_data 
 {
     size_t time_to_eat;
@@ -33,11 +39,12 @@ typedef struct s_data
     size_t time_to_sleep;
     size_t food;
     size_t completed;
+    int num_of_philo;
+    t_philo philo;
     pthread_mutex_t prints;
     pthread_mutex_t forks;
     pthread_mutex_t death;
 } t_data;
-
 void ft_log(int msg, int philo, t_data *data);
 void ft_is_input_valid(int argc, char *argv[]);
 void	ft_usleep(size_t ms);
