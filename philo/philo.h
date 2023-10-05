@@ -6,7 +6,7 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de >    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 10:50:48 by jkulka            #+#    #+#             */
-/*   Updated: 2023/10/05 11:55:39 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/10/05 13:42:45 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #   define THINKING 3
 #   define DYING 4
 #   define FORK 5
+// #   define LAST_MEAL 6
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -31,6 +32,7 @@ typedef struct s_philo
 {
     size_t num;
     size_t last_meal;
+    size_t already_eaten;
     size_t is_eating;
     size_t limit;
     size_t lfork;
@@ -42,18 +44,28 @@ typedef struct s_data
     size_t time_to_eat;
     size_t time_to_die;
     size_t time_to_sleep;
-    size_t food;
+    size_t ammount_of_food;
     size_t completed;
     size_t num_of_philo;
     t_philo *philo;
-    pthread_mutex_t prints;
-    pthread_mutex_t forks;
-    pthread_mutex_t death;
+    int *forks;
+    pthread_mutex_t print_mutex;
+    pthread_mutex_t *fork_mutex;
+    pthread_mutex_t death_mutex;
 } t_data;
 
-void ft_log(int msg, int philo, t_data *data);
+void ft_log(int msg, size_t time, t_philo *philo);
 void ft_is_input_valid(int argc, char *argv[], t_data *data);
 void	ft_usleep(size_t ms);
 size_t	get_time(void);
 int ft_atoi(char *str, size_t *dst);
+void ft_exit(int flag);
+void ft_init(t_data *data);
+void ft_init_mutex(t_data *data);
+void ft_clean(t_data *data);
+int is_dead(t_philo *philo);
+int ft_begin(t_data *data);
+int yoink_forks(t_philo *philo);
+int free_forks(t_philo *philo);
+int eat(t_philo *philo);
 #endif
