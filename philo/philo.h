@@ -6,12 +6,12 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de >    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 10:50:48 by jkulka            #+#    #+#             */
-/*   Updated: 2023/10/02 11:58:20 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/10/05 11:55:39 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _PHILO_H_
-#define _PHILO_H_
+#ifndef PHILO_H
+#define PHILO_H
 #	define RED "\e[0;31m"
 #	define YEL "\e[0;33m"
 #	define WHT "\e[0;37m"
@@ -26,11 +26,16 @@
 # include <stdlib.h>
 # include <pthread.h>
 # include <sys/time.h>
+struct s_data;
 typedef struct s_philo
 {
-    int num;
+    size_t num;
     size_t last_meal;
-    size_t threshhold;
+    size_t is_eating;
+    size_t limit;
+    size_t lfork;
+    size_t rfork;
+    struct s_data *data;
 } t_philo;
 typedef struct s_data 
 {
@@ -39,14 +44,16 @@ typedef struct s_data
     size_t time_to_sleep;
     size_t food;
     size_t completed;
-    int num_of_philo;
-    t_philo philo;
+    size_t num_of_philo;
+    t_philo *philo;
     pthread_mutex_t prints;
     pthread_mutex_t forks;
     pthread_mutex_t death;
 } t_data;
+
 void ft_log(int msg, int philo, t_data *data);
-void ft_is_input_valid(int argc, char *argv[]);
+void ft_is_input_valid(int argc, char *argv[], t_data *data);
 void	ft_usleep(size_t ms);
 size_t	get_time(void);
+int ft_atoi(char *str, size_t *dst);
 #endif

@@ -6,8 +6,13 @@
 /*   By: jkulka <jkulka@student.42heilbronn.de >    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/02 11:54:29 by jkulka            #+#    #+#             */
-/*   Updated: 2023/10/02 12:00:03 by jkulka           ###   ########.fr       */
+/*   Updated: 2023/10/05 10:45:43 by jkulka           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+void ft_init(t_data *data)
+{
+    
+}

@@ -6,7 +6,8 @@ DEBUG = -g
 
 SRC = 	main.c \
 		validate.c \
-		time_utils.c
+		time_utils.c \
+		other_utils.c 
 OBJ = $(SRC:.c=.o)
 
 GREEN = \033[0;32m
